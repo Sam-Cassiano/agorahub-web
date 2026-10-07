@@ -815,7 +815,9 @@
     if (tela.ligar) tela.ligar(main, app);
     document.title = (tela.titulo ? tela.titulo + " · " : "") + "ÁgoraHub";
     atualizarLateral();
+    if (AH.editor) AH.editor.aposRender(app);
   }
+  AH.render = render;
 
   // ================================================================ Painel lateral (apresentação)
   function atualizarLateral() {

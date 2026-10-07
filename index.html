@@ -6,7 +6,9 @@
   <title>ÁgoraHub</title>
   <meta name="description" content="ÁgoraHub — protótipo web: oportunidades, projetos e pessoas do IFAL Arapiraca. Projeto Integrador 2.">
   <meta name="theme-color" content="#1F3A5F">
+  <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo/png/agorahub-icone-180.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +38,12 @@
       </div>
 
       <div class="bloco">
+        <h2>Edição</h2>
+        <button class="btn btn-primario" id="ed-alternar" aria-pressed="false" style="min-height:36px;font-size:14px">Editar (E)</button>
+        <small>Clique para selecionar, duplo clique para mudar textos, aba Tema para cores. Salva no navegador e em <b>edicao.json</b>; exporta SVG em camadas para o Figma.</small>
+      </div>
+
+      <div class="bloco">
         <h2>Dados</h2>
         <button class="btn btn-contorno" id="restaurar" style="min-height:36px;font-size:14px">Restaurar dados de exemplo</button>
         <small>Tudo fica só neste navegador. Mesmas regras do modo demonstração do app (vagas, recusa automática, encerrar/reabrir).</small>
@@ -50,6 +58,7 @@
   <noscript>Ative o JavaScript para usar o ÁgoraHub.</noscript>
   <script src="js/dados.js"></script>
   <script src="js/banco.js"></script>
+  <script src="js/editor.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

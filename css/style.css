@@ -237,3 +237,74 @@ a { color: var(--secondary); }
 @keyframes subir { from { transform: translateY(16px); opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ================================================================ Modo de edição (estilo Figma) */
+.ed-hover, .ed-sel { position: fixed; pointer-events: none; z-index: 900; box-sizing: border-box; }
+.ed-hover { outline: 1px solid #18A0FB; }
+.ed-sel { outline: 2px solid #18A0FB; box-shadow: 0 0 0 9999px rgba(24,160,251,.04); }
+.ed-rot { position: absolute; left: -2px; top: -22px; background: #18A0FB; color: #fff; font: 600 11px/1 Roboto, system-ui, sans-serif; padding: 5px 6px; border-radius: 3px 3px 3px 0; white-space: nowrap; max-width: 320px; overflow: hidden; text-overflow: ellipsis; }
+.ed-hover .ed-rot { background: rgba(24,160,251,.75); }
+.ed-ligado #app, .ed-ligado #app * { cursor: default !important; }
+.ed-ligado #app [contenteditable="true"] { cursor: text !important; }
+.ed-editando { outline: 2px dashed #18A0FB !important; outline-offset: 2px; background: rgba(24,160,251,.08); }
+
+.ed-painel { position: fixed; top: 16px; right: 16px; bottom: 16px; width: 300px; z-index: 950; background: #2C2C2C; color: #E6E6E6; border-radius: 12px; display: flex; flex-direction: column; font: 12.5px/1.4 Roboto, system-ui, sans-serif; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.ed-painel[hidden] { display: none; }
+.ed-topo { display: flex; align-items: center; gap: 4px; padding: 10px 10px 8px 14px; border-bottom: 1px solid #3d3d3d; }
+.ed-topo b { flex: 1; font-size: 13px; }
+.ed-ic { width: 30px; height: 30px; border: 0; border-radius: 6px; background: none; color: #E6E6E6; font-size: 16px; cursor: pointer; }
+.ed-ic:hover:not(:disabled) { background: #3d3d3d; }
+.ed-ic:disabled { opacity: .35; cursor: default; }
+.ed-abas { display: flex; gap: 2px; padding: 6px 8px 0; border-bottom: 1px solid #3d3d3d; }
+.ed-abas button { flex: 1; background: none; border: 0; color: #A0A0A0; padding: 8px 4px; font: 600 12px Roboto, system-ui, sans-serif; cursor: pointer; border-bottom: 2px solid transparent; }
+.ed-abas button[aria-selected="true"] { color: #fff; border-bottom-color: #18A0FB; }
+.ed-corpo { flex: 1; overflow-y: auto; padding: 12px 14px; }
+.ed-corpo h4 { margin: 14px 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #A0A0A0; }
+.ed-cab { display: flex; justify-content: space-between; gap: 8px; padding-bottom: 8px; border-bottom: 1px solid #3d3d3d; }
+.ed-cab b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ed-cab span { color: #A0A0A0; flex: none; }
+.ed-l { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 6px 0; color: #CFCFCF; }
+.ed-l.ed-col { flex-direction: column; align-items: stretch; margin-top: 10px; }
+.ed-mud { color: #18A0FB; font-size: 9px; margin-left: 4px; }
+.ed-cor, .ed-num { display: inline-flex; align-items: center; gap: 6px; }
+.ed-cor input[type=color] { width: 26px; height: 22px; padding: 0; border: 1px solid #555; border-radius: 4px; background: none; cursor: pointer; }
+.ed-cor code { font: 11px ui-monospace, monospace; color: #E6E6E6; min-width: 76px; }
+.ed-num input[type=number] { width: 64px; }
+.ed-num i { color: #A0A0A0; font-style: normal; width: 14px; }
+.ed-painel input[type=number], .ed-painel select, .ed-painel textarea { background: #383838; color: #fff; border: 1px solid #4a4a4a; border-radius: 5px; padding: 4px 6px; font: 12.5px Roboto, system-ui, sans-serif; }
+.ed-painel textarea { width: 100%; resize: vertical; margin-top: 4px; }
+.ed-painel input:focus, .ed-painel select:focus, .ed-painel textarea:focus { outline: 1px solid #18A0FB; border-color: #18A0FB; }
+.ed-painel input[type=range] { width: 120px; accent-color: #18A0FB; }
+.ed-x { background: none; border: 0; color: #A0A0A0; cursor: pointer; font-size: 15px; padding: 0 2px; }
+.ed-x:hover { color: #fff; }
+.ed-acoes { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.ed-acoes.ed-col { flex-direction: column; }
+.ed-btn { background: #383838; color: #E6E6E6; border: 1px solid #4a4a4a; border-radius: 6px; padding: 7px 10px; font: 500 12.5px Roboto, system-ui, sans-serif; cursor: pointer; text-align: center; }
+.ed-btn:hover:not(:disabled) { background: #444; }
+.ed-btn:disabled { opacity: .4; cursor: default; }
+.ed-btn.ed-prim { background: #18A0FB; border-color: #18A0FB; color: #fff; }
+.ed-btn.ed-prim:hover { background: #0D8DE3; }
+.ed-btn.ed-perigo { color: #FF8A80; }
+.ed-btn-link { background: none; border: 0; color: #18A0FB; padding: 4px 0; cursor: pointer; text-align: left; font: inherit; }
+.ed-dica { color: #A0A0A0; font-size: 11.5px; margin: 8px 0; }
+.ed-dica code, .ed-painel p code { background: #383838; padding: 1px 4px; border-radius: 3px; }
+.ed-vazio p { margin: 0 0 10px; color: #CFCFCF; }
+.ed-resumo { background: #383838; border-radius: 6px; padding: 8px 10px; margin: 0; }
+.ed-rodape { padding: 8px 14px; border-top: 1px solid #3d3d3d; color: #A0A0A0; font-size: 11.5px; transition: color .3s; }
+.ed-rodape.pisca { color: #7DD3FC; }
+
+.ed-flutuante { position: fixed; right: 16px; bottom: 16px; z-index: 940; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #2C2C2C; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.ed-flutuante svg { width: 22px; height: 22px; }
+.ed-flutuante[aria-pressed="true"] { background: #18A0FB; }
+.ed-ligado .ed-flutuante { display: none; }
+.ed-ligado .palco { padding-right: 332px; }
+@media (min-width: 861px) { .ed-flutuante { display: none; } }
+@media (max-width: 860px) {
+  .ed-painel { top: auto; left: 0; right: 0; bottom: 0; width: auto; height: 46vh; border-radius: 14px 14px 0 0; }
+  .ed-ligado .palco { padding-right: 0; padding-bottom: 46vh; }
+  .ed-ligado .aparelho { height: 54vh; }
+}
+
+/* exportação: tela inteira, sem rolagem */
+.ed-exportando .aparelho { height: auto !important; }
+.ed-exportando .app { height: auto !important; }
+.ed-exportando .conteudo { overflow: visible !important; flex: none; }
