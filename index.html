@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ÁgoraHub</title>
+  <meta name="description" content="ÁgoraHub — protótipo web: oportunidades, projetos e pessoas do IFAL Arapiraca. Projeto Integrador 2.">
+  <meta name="theme-color" content="#1F3A5F">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="palco">
+    <aside class="lateral" aria-label="Sobre a demonstração">
+      <h1>ÁgoraHub</h1>
+      <p>Protótipo web do app Android do Projeto Integrador 2 — Sistemas de Informação, IFAL Arapiraca.</p>
+
+      <div class="bloco">
+        <h2>Entrar como</h2>
+        <div class="contas" id="contas"></div>
+        <small>Senha <b>12345678</b> em todas (@aluno.ifal.edu.br). <b>demo@</b> é admin. <b>rafael@</b> está oculto em Pessoas (CT46).</small>
+      </div>
+
+      <div class="bloco">
+        <h2>Roteiro de demonstração</h2>
+        <ol style="margin:0;padding-left:18px;font-size:14px;line-height:1.6">
+          <li>Como <b>demo@</b>: Conexões › Projetos › “Grupo para a maratona” › Solicitar.</li>
+          <li>Perfil › Solicitações recebidas: aceite Pedro e Camila — a última vaga fecha o projeto.</li>
+          <li>Entre como <b>pedro@</b> e aceite a solicitação em Recebidas.</li>
+          <li>Conexões › Pessoas: busca, filtro e interesses em comum.</li>
+        </ol>
+      </div>
+
+      <div class="bloco">
+        <h2>Dados</h2>
+        <button class="btn btn-contorno" id="restaurar" style="min-height:36px;font-size:14px">Restaurar dados de exemplo</button>
+        <small>Tudo fica só neste navegador. Mesmas regras do modo demonstração do app (vagas, recusa automática, encerrar/reabrir).</small>
+      </div>
+    </aside>
+
+    <div class="aparelho">
+      <div class="app" id="app"></div>
+    </div>
+  </div>
+
+  <noscript>Ative o JavaScript para usar o ÁgoraHub.</noscript>
+  <script src="js/dados.js"></script>
+  <script src="js/banco.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "ÁgoraHub",
+  "short_name": "ÁgoraHub",
+  "description": "Oportunidades, projetos e pessoas do IFAL Arapiraca.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FAFBFD",
+  "theme_color": "#1F3A5F",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
